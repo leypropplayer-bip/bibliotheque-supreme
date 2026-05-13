@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:'Segoe UI',Arial,sans-serif;
+  background:#050505;
+  color:#eaeaea;
+  overflow-x:hidden;
+}
+
+/* HEADER */
+header{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:40px 20px;
+  background:radial-gradient(ellipse at top,#3a0030,#050505);
+  position:relative;
+  overflow:hidden;
+}
+
+header::before{
+  content:'';
+  position:absolute;
+  width:600px;height:600px;
+  background:radial-gradient(circle,rgba(255,0,127,.15),transparent 70%);
+  top:-100px;left:50%;
+  transform:translateX(-50%);
+  animation:breathe 4s ease-in-out infinite;
+}
+
+@keyframes breathe{
+  0%,100%{transform:translateX(-50%) scale(1)}
+  50%{transform:translateX(-50%) scale(1.2)}
+}
+
+header h1{
+  font-size:clamp(1.8rem,5vw,3.5rem);
+  background:linear-gradient(135deg,#ff007f,#ff6ec7,#ff007f);
+  background-size:200%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:shine 3s linear infinite;
+  letter-spacing:2px;
+  position:relative;
+  z-index:1;
+}
+
+@keyframes shine{
+  0%{background-position:0%}
+  100%{background-position:200%}
+}
+
+header p{
+  margin-top:20px;
+  font-size:1.1rem;
+  opacity:.7;
+  position:relative;
+  z-index:1;
+  max-width:500px;
+}
+
+.scroll-btn{
+  margin-top:40px;
+  padding:14px 35px;
+  border-radius:50px;
+  background:linear-gradient(135deg,#ff007f,#c0006a);
+  color:#fff;
+  font-weight:bold;
+  text-decoration:none;
+  font-size:1rem;
+  position:relative;
+  z-index:1;
+  box-shadow:0 0 30px rgba(255,0,127,.5);
+  transition:.3s;
+}
+
+.scroll-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 0 50px rgba(255,0,127,.8);
+}
+
+/* PROMO */
+.promo-section{
+  padding:50px 20px;
+  text-align:center;
+  background:linear-gradient(180deg,#050505,#0a0010);
+}
+
+.promo{
+  display:inline-block;
+  padding:16px 40px;
+  border-radius:50px;
+  font-weight:bold;
+  font-size:1.1rem;
+  background:linear-gradient(135deg,#ff007f,#ff6ec7);
+  color:#fff;
+  box-shadow:0 0 40px rgba(255,0,127,.6);
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(255,0,127,.7)}
+  70%{box-shadow:0 0 0 25px rgba(255,0,127,0)}
+  100%{box-shadow:0 0 0 0 rgba(255,0,127,0)}
+}
+
+/* SECTION */
+section{
+  padding:70px 20px;
+  max-width:1200px;
+  margin:auto;
+  text-align:center;
+}
+
+section h2{
+  font-size:2rem;
+  margin-bottom:10px;
+  background:linear-gradient(135deg,#fff,#ff007f);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+section .subtitle{
+  opacity:.6;
+  margin-bottom:50px;
+  font-size:.95rem;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+
+/* CARD */
+.card{
+  background:linear-gradient(145deg,rgba(20,0,20,.9),rgba(10,0,15,.95));
+  border-radius:20px;
+  padding:35px 25px;
+  border:1px solid rgba(255,0,127,.2);
+  transition:all .4s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+.card::before{
+  content:'';
+  position:absolute;
+  top:-50%;left:-50%;
+  width:200%;height:200%;
+  background:radial-gradient(circle,rgba(255,0,127,.05),transparent 60%);
+  opacity:0;
+  transition:.4s;
+}
+
+.card:hover::before{opacity:1}
+
+.card:hover{
+  transform:translateY(-15px);
+  border-color:rgba(255,0,127,.8);
+  box-shadow:0 20px 60px rgba(255,0,127,.3);
+}
+
+.card-icon{font-size:2.5rem;margin-bottom:15px}
+
+.card h3{
+  color:#ff6ec7;
+  margin-bottom:12px;
+  font-size:1.3rem;
+}
+
+.card p{
+  opacity:.75;
+  font-size:.95rem;
+  line-height:1.6;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:25px;
+  padding:12px 25px;
+  border-radius:10px;
+  background:linear-gradient(135deg,#ff9900,#ffb700);
+  color:#000;
+  font-weight:bold;
+  text-decoration:none;
+  transition:.3s;
+  font-size:.95rem;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 25px rgba(255,153,0,.6);
+}
+
+/* CTA */
+.cta{
+  margin-top:80px;
+  padding:50px 30px;
+  background:linear-gradient(135deg,rgba(255,0,127,.1),rgba(0,0,0,.5));
+  border-radius:25px;
+  border:1px solid rgba(255,0,127,.2);
+}
+
+.cta h2{
+  font-size:1.8rem;
+  margin-bottom:10px;
+}
+
+.cta p{opacity:.7;margin-bottom:30px}
+
+.wa{
+  display:inline-block;
+  padding:18px 45px;
+  border-radius:50px;
+  font-size:1.1rem;
+  font-weight:bold;
+  background:linear-gradient(135deg,#25D366,#1da851);
+  color:#fff;
+  text-decoration:none;
+  box-shadow:0 0 30px rgba(37,211,102,.4);
+  transition:.3s;
+}
+
+.wa:hover{
+  transform:translateY(-4px);
+  box-shadow:0 0 50px rgba(37,211,102,.7);
+}
+
+/* FOOTER */
+footer{
+  background:#000;
+  padding:40px 20px;
+  text-align:center;
+  border-top:1px solid rgba(255,0,127,.2);
+  font-size:.85rem;
+  opacity:.7;
+  line-height:2;
+}
+
+/* STARS */
+.stars{
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  pointer-events:none;
+  z-index:0;
+  overflow:hidden;
+}
+
+.star{
+  position:absolute;
+  width:2px;height:2px;
+  background:#ff007f;
+  border-radius:50%;
+  animation:twinkle var(--d) ease-in-out infinite;
+  opacity:0;
+}
+
+@keyframes twinkle{
+  0%,100%{opacity:0;transform:scale(1)}
+  50%{opacity:.8;transform:scale(1.5)}
+}
+</style>
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+
+<header>
+  <h1>📜 La Bibliothèque de La Fille Suprême 📜</h1>
+  <p>Le savoir rare, les grimoires et les secrets réservés aux initiés</p>
+  <a href="#grimoires" class="scroll-btn">✨ Découvrir les Grimoires</a>
+</header>
+
+<div class="promo-section">
+  <div class="promo">🔥 CODE PRIVILÈGE : 0163344 🔥</div>
+</div>
+
+<section id="grimoires">
+  <h2>Nos Grimoires Sélectionnés</h2>
+  <p class="subtitle">Des œuvres rares pour esprits éveillés</p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-icon">🔮</div>
+      <h3>Secrets Occultes</h3>
+      <p>Psychologie, énergie et pouvoir intérieur pour esprits éveillés.</p>
+      <a href="#" class="btn">Voir sur Amazon 🛒</a>
+    </div>
+    <div class="card">
+      <div class="card-icon">💋</div>
+      <h3>L'Art de la Séduction</h3>
+      <p>Comprendre, influencer et captiver sans jamais forcer.</p>
+      <a href="#" class="btn">Voir sur Amazon 🛒</a>
+    </div>
+    <div class="card">
+      <div class="card-icon">✨</div>
+      <h3>Rituels de Prospérité</h3>
+      <p>Structurer l'abondance par la discipline et la connaissance.</p>
+      <a href="#" class="btn">Voir sur Amazon 🛒</a>
+    </div>
+  </div>
+
+  <div class="cta">
+    <h2>Commande assistée</h2>
+    <p>Utilise le code <strong>0163344</strong> pour un accompagnement personnalisé</p>
+    <a href="https://wa.me/50932963889" class="wa">📩 Contacter sur WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 — La Bibliothèque Suprême</p>
+  <p>Partenaire Amazon officiel — Des commissions peuvent être perçues.</p>
+  <p><i>« Le savoir vient au sein de la CDM »</i></p>
+</footer>
+
+<script>
+const stars = document.getElementById('stars');
+for(let i = 0; i < 60; i++){
+  const s = document.createElement('div');
+  s.className = 'star';
+  s.style.cssText = `
+    left:${Math.random()*100}%;
+    top:${Math.random()*100}%;
+    --d:${2+Math.random()*4}s;
+    animation-delay:${Math.random()*4}s;
+  `;
+  stars.appendChild(s);
+}
+</script>
+
+</body>
+</html>
